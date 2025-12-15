@@ -1,0 +1,119 @@
+. Perform encryption and decryption using SSL and validate message integrity with test 
+	   data. 
+Aim
+
+To perform encryption and decryption using Secure Sockets Layer (SSL/TLS) and to validate message integrity using test data, thereby understanding how secure communication is ensured in client–server systems and Robotic Process Automation (RPA) environments.
+
+Objectives
+
+To understand the concept of SSL/TLS
+
+To establish a secure SSL connection
+
+To perform encrypted data transmission
+
+To validate message integrity
+
+To study the importance of SSL in RPA workflows
+
+Procedure
+Step 1: Environment Setup
+
+Ensure Python and OpenSSL are installed on the system.
+
+Generate SSL certificates for secure communication.
+
+Prepare test data for transmission.
+
+Step 2: Generate SSL Certificate
+
+Use OpenSSL to generate a self-signed certificate:
+
+openssl req -new -x509 -days 365 -nodes -out server.crt -keyout server.key
+
+
+This creates:
+
+server.crt → SSL certificate
+
+server.key → Private key
+
+Step 3: Establish SSL Server
+
+Create a server program that listens on a port.
+
+Wrap the socket using SSL.
+
+Accept encrypted client connections.
+
+Step 4: Establish SSL Client
+
+Create a client program.
+
+Connect to the server using SSL.
+
+Send encrypted test data.
+
+Step 5: Validate Message Integrity
+
+Server decrypts received data.
+
+Server sends acknowledgment.
+
+Client verifies received response.
+
+Program
+SSL Server Program (Python)
+import socket, ssl
+
+context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+context.load_cert_chain(certfile="server.crt", keyfile="server.key")
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind(('localhost', 8443))
+server_socket.listen(1)
+
+print("SSL Server waiting for connection...")
+
+conn, addr = server_socket.accept()
+ssl_conn = context.wrap_socket(conn, server_side=True)
+
+data = ssl_conn.recv(1024)
+print("Received (Decrypted):", data.decode())
+
+ssl_conn.send(b"Message received securely")
+ssl_conn.close()
+
+SSL Client Program (Python)
+import socket, ssl
+
+context = ssl.create_default_context()
+context.check_hostname = False
+context.verify_mode = ssl.CERT_NONE
+
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ssl_client = context.wrap_socket(client_socket, server_hostname='localhost')
+
+ssl_client.connect(('localhost', 8443))
+
+message = "Secure RPA Communication Test"
+ssl_client.send(message.encode())
+
+data = ssl_client.recv(1024)
+print("Server Response:", data.decode())
+
+ssl_client.close()
+
+Output
+Server Output
+SSL Server waiting for connection...
+Received (Decrypted): Secure RPA Communication Test
+
+Client Output
+Server Response: Message received securely
+
+Result
+
+Thus, encryption and decryption using SSL were successfully performed. The transmitted test data was securely encrypted during transmission, decrypted at the receiver, and message integrity was validated without any data modification.
+
+Ensure data received is unchanged.
