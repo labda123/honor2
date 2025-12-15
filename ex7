@@ -1,59 +1,66 @@
-Use a security tool to carry out ARP poisoning and analyze the sniffed data. 
+EXPERIMENT – 7
+ARP Poisoning and Analysis of Sniffed Data
 Aim
 
-To perform ARP poisoning using a security tool and analyze the sniffed network data in order to understand Man‑in‑the‑Middle attacks and vulnerabilities present in local area networks.
+To perform ARP poisoning using a security tool and analyze the sniffed network data in order to study Man‑in‑the‑Middle attacks and vulnerabilities present in local area networks.
 
 Objectives
 
-To study the working principle of the Address Resolution Protocol (ARP)
+To study the working of Address Resolution Protocol (ARP)
 
-To understand ARP cache poisoning and its security implications
+To understand ARP cache poisoning attacks
 
 To perform a Man‑in‑the‑Middle (MITM) attack
 
-To capture and analyze network packets using packet sniffing tools
+To capture and analyze network packets
 
-To study the risks involved in unsecured and switched networks
+To understand security risks in switched networks
 
-Introduction / Theory
+To analyze sensitive data transmitted over the network
 
-The Address Resolution Protocol (ARP) is used to map an IP address to a physical MAC address in a local network. Since ARP does not provide any authentication mechanism, it is vulnerable to attacks such as ARP spoofing or ARP poisoning. In an ARP poisoning attack, the attacker sends forged ARP messages to the network, associating the attacker’s MAC address with the IP address of another host (usually the gateway). As a result, the attacker becomes a Man‑in‑the‑Middle and can intercept, modify, or block network traffic.
+Theory / Background
 
-Packet sniffing is the process of capturing network packets as they travel across the network. When combined with ARP poisoning, an attacker can analyze sensitive information such as IP addresses, session cookies, and protocol data.
+Address Resolution Protocol (ARP) is a fundamental protocol used in local area networks to map logical IP addresses to physical MAC addresses. When a system wants to communicate with another system in the same network, it broadcasts an ARP request asking for the MAC address corresponding to a particular IP address. The receiving system replies with its MAC address, which is then stored in the ARP cache.
+
+ARP does not include any authentication mechanism, which makes it vulnerable to spoofing attacks. In ARP poisoning, an attacker sends fake ARP replies to the victim and the gateway, associating the attacker’s MAC address with the gateway’s IP address. As a result, all traffic between the victim and the gateway passes through the attacker system, enabling packet sniffing, data modification, or session hijacking.
+
+Packet sniffing is the process of capturing and analyzing packets flowing through a network. Tools like Wireshark allow attackers or administrators to inspect packet headers, payloads, and protocol information.
 
 Tools / Software Used
 
 Kali Linux Operating System
 
-Ettercap (for ARP Poisoning and MITM attack)
+Ettercap (for ARP poisoning and MITM attack)
 
-Wireshark (for packet sniffing and analysis)
+Wireshark (for packet capture and analysis)
 
 Procedure
 
-Kali Linux system is booted and connected to the same local network as the victim.
+Kali Linux is booted and connected to the same network as the victim system.
 
-Network interface details are identified using the ifconfig command.
+Network interface details are obtained using the ifconfig command.
 
-The IP and MAC addresses of devices in the network are identified using the arp -a command.
+IP and MAC address mapping of all devices is identified using arp -a.
 
-Ettercap is launched in graphical mode using the command ettercap -G.
+Ettercap is launched in graphical mode using ettercap -G.
 
-Unified sniffing mode is selected by navigating to Sniff → Unified Sniffing.
+From the Ettercap menu, Unified Sniffing mode is selected.
 
-The active network interface is selected to begin packet capture.
+The appropriate network interface is chosen for sniffing.
 
-Host scanning is performed by selecting Hosts → Scan for Hosts.
+Host scanning is performed to detect all devices in the network.
 
-The victim system is added as Target 1 and the default gateway is added as Target 2.
+The victim system is selected as Target 1 and the default gateway as Target 2.
 
-ARP poisoning is initiated by selecting Mitm → ARP Poisoning and enabling remote sniffing.
+ARP poisoning is initiated by enabling MITM mode.
 
-Network traffic between the victim and the gateway is intercepted.
+Forged ARP packets are sent continuously to poison ARP caches.
 
-Wireshark is opened simultaneously to capture and analyze network packets.
+Network traffic between victim and gateway is redirected.
 
-Captured packets such as HTTP, DNS, TCP, and UDP are analyzed.
+Wireshark is opened to capture and analyze packets.
+
+Protocols such as HTTP, DNS, TCP, and UDP are examined.
 
 Program / Commands Used
 ifconfig
@@ -63,12 +70,14 @@ wireshark
 
 Output
 
-Network traffic between the victim and gateway was successfully intercepted.
+ARP tables of victim and gateway were poisoned.
 
-Multiple packets were captured showing protocol details.
+Network packets were intercepted successfully.
 
-Sensitive network information such as IP addresses and session data were visible.
+Protocol details and IP information were visible.
+
+MITM attack was confirmed.
 
 Result
 
-The ARP poisoning attack was successfully performed, and network packets were captured and analyzed using packet sniffing tools.
+ARP poisoning attack was successfully performed and network traffic was intercepted and analyzed.
