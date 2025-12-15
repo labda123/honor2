@@ -1,0 +1,148 @@
+Configure a test environment to launch MITM and dictionary attacks and verify the 
+	    captured data. 
+
+## **Aim**
+
+To configure a **controlled test environment** to **simulate Man-In-The-Middle (MITM)** and **dictionary attack scenarios** for educational purposes, and to **observe and verify captured data**, thereby understanding common security threats and their impact on **client–server communication and RPA systems**.
+
+---
+
+## **Objectives**
+
+* To understand MITM and dictionary attack concepts
+* To set up a **safe and isolated test environment**
+* To observe how data can be intercepted or attacked
+* To verify the type of data captured during attacks
+* To study security implications for **RPA workflows**
+
+---
+
+### **Environment Components**
+
+* Virtual Machine (Client)
+* Virtual Machine (Server)
+* Isolated Network (Host-only / NAT)
+* Test application with dummy credentials
+* Packet analysis tools (Wireshark)
+* Authentication logs (server side)
+
+---
+
+## **Conceptual Overview**
+
+### **1. Man-In-The-Middle (MITM) Attack (Simulation)**
+
+A MITM attack occurs when an attacker secretly intercepts communication between a client and server.
+
+**Observed Effects (Simulation):**
+
+* Network packets can be captured
+* Unencrypted data may be visible
+* SSL/TLS protects sensitive payloads
+
+---
+
+### **2. Dictionary Attack (Simulation)**
+
+A dictionary attack attempts authentication using a predefined list of common passwords.
+
+**Observed Effects (Simulation):**
+
+* Multiple failed login attempts
+* Authentication logs show repeated failures
+* Account lockout mechanisms get triggered
+
+---
+
+## **Procedure**
+
+### **A. Test Environment Setup**
+
+1. Create two virtual machines (Client and Server).
+2. Configure both machines on the same isolated virtual network.
+3. Deploy a test web or login application using dummy data.
+4. Enable logging on the server.
+
+---
+
+### **B. MITM Simulation (Observation-Based)**
+
+1. Initiate client–server communication using test credentials.
+2. Capture traffic using a network analyzer.
+3. Observe:
+
+   * IP addresses
+   * Protocols used (TCP/HTTPS)
+   * Encryption presence
+4. Verify whether sensitive data is readable or encrypted.
+
+---
+
+### **C. Dictionary Attack Simulation (Observation-Based)**
+
+1. Attempt multiple login attempts using incorrect test passwords.
+2. Monitor authentication logs.
+3. Observe:
+
+   * Failed login attempts
+   * Repeated password trials
+   * Account lockout responses
+
+---
+
+## **Program / Tools Used (Observation Only)**
+
+### **Wireshark Filters**
+
+```
+tcp
+http
+https
+```
+
+### **Server Log Sample (Authentication)**
+
+```
+Login attempt failed for user: test_user
+Login attempt failed for user: test_user
+Account locked after multiple failures
+```
+
+---
+
+## **Captured Data Verification**
+
+### **MITM Simulation Results**
+
+| Data Type           | Visibility |
+| ------------------- | ---------- |
+| IP Address          | Visible    |
+| Protocol            | Visible    |
+| Credentials (HTTP)  | Visible    |
+| Credentials (HTTPS) | Encrypted  |
+
+---
+
+### **Dictionary Attack Results**
+
+| Observation       | Result    |
+| ----------------- | --------- |
+| Failed logins     | Detected  |
+| Password patterns | Logged    |
+| Account lockout   | Triggered |
+
+---
+
+## **Output**
+
+* Network packets captured showing encrypted communication
+* Authentication logs showing multiple failed attempts
+* No plaintext credentials exposed when SSL/TLS is used
+
+---
+
+## **Result**
+
+Thus, a controlled test environment was successfully configured to **simulate MITM and dictionary attack scenarios**. Captured data was analyzed and verified, demonstrating the importance of **encryption, authentication controls, and intrusion detection mechanisms**.
+
+---
