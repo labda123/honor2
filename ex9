@@ -1,0 +1,60 @@
+. Investigate network monitoring tools and their functionalities. 
+
+Aim
+
+To investigate various network monitoring tools and study their functionalities in analyzing network performance and traffic behavior.
+
+Objectives
+
+To monitor network traffic in real time
+
+To analyze packet flow and bandwidth
+
+To identify open ports and services
+
+To understand protocol behavior
+
+To observe active network connections
+
+Theory / Background
+
+Network monitoring tools are essential for maintaining network performance and security. These tools provide real‑time insights into traffic flow, bandwidth usage, and potential network issues. Wireshark captures packets at the protocol level, Nmap identifies open ports and services, and Netstat displays active connections and network statistics.
+
+Tools / Software Used
+
+Wireshark
+
+Nmap
+
+Netstat
+
+Procedure
+
+Wireshark is launched and the network interface is selected.
+
+Live packet capture is started.
+
+Captured packets are analyzed based on protocols.
+
+Nmap is used to scan the target network.
+
+Netstat is used to display active connections.
+
+Traffic statistics are analyzed.
+
+Program / Commands Used
+wireshark
+nmap 192.168.1.1
+netstat -an
+
+Output
+
+Network traffic was captured in real time.
+
+Open ports and running services were identified.
+
+Active connections were displayed.
+
+Result
+
+Network monitoring tools were successfully investigated and their functionalities were analyzed.
