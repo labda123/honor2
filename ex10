@@ -1,0 +1,64 @@
+Configuration and Testing of Firewall and VPN
+Aim
+
+To configure and test Firewall and VPN settings in order to ensure secure network communication.
+
+Objectives
+
+To implement firewall rules
+
+To control network traffic
+
+To establish a secure VPN tunnel
+
+To verify encrypted communication
+
+To enhance network security
+
+Theory / Background
+
+A firewall acts as a barrier between trusted and untrusted networks by filtering packets based on predefined rules. VPN (Virtual Private Network) provides encrypted communication over public networks, ensuring confidentiality and integrity. Firewalls and VPNs are essential components of modern network security.
+
+Tools / Software Used
+
+UFW Firewall
+
+OpenVPN
+
+Procedure
+Firewall Configuration
+
+Firewall service is enabled.
+
+Rules are added to allow or deny services.
+
+Firewall status is verified.
+
+VPN Configuration
+
+VPN software is installed.
+
+Configuration files are loaded.
+
+Secure tunnel is established.
+
+IP address is verified.
+
+Program / Commands Used
+sudo ufw enable
+sudo ufw allow ssh
+sudo ufw deny 80
+sudo ufw status
+sudo openvpn client.ovpn
+
+Output
+
+Firewall rules were enforced successfully.
+
+Network traffic was filtered.
+
+VPN connection was established.
+
+Result
+
+Firewall and VPN were successfully configured and tested to provide secure communication.
