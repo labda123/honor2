@@ -1,0 +1,61 @@
+Demonstrate an intrusion detection system using a security tool.
+
+Aim
+
+To demonstrate the working of an Intrusion Detection System (IDS) using a security tool to detect unauthorized and malicious activities in a network.
+
+Objectives
+
+To understand the concept and importance of Intrusion Detection Systems
+
+To analyze rule‑based intrusion detection mechanisms
+
+To identify malicious network activities
+
+To generate alerts for intrusion attempts
+
+Introduction / Theory
+
+An Intrusion Detection System (IDS) is a security mechanism that monitors network traffic and system activities to identify suspicious behavior or policy violations. IDS tools analyze packets based on predefined rules or anomaly detection techniques. Snort is an open‑source, signature‑based IDS widely used for real‑time traffic analysis and packet logging.
+
+Tools / Software Used
+
+Kali Linux
+
+Snort IDS Tool
+
+Procedure
+
+Snort is installed using the system package manager.
+
+The Snort configuration file is edited to define the protected network.
+
+The HOME_NET variable is configured according to the local network.
+
+Snort is started in intrusion detection mode.
+
+Network traffic is monitored continuously.
+
+Suspicious traffic such as port scanning is generated using scanning tools.
+
+Snort analyzes traffic and compares it with predefined rules.
+
+Alerts are generated for detected intrusions.
+
+Program / Commands Used
+sudo apt install snort
+sudo nano /etc/snort/snort.conf
+sudo snort -A console -q -c /etc/snort/snort.conf -i eth0
+nmap -sS <target-IP>
+
+Output
+
+Alerts indicating suspicious activities were displayed.
+
+Port scanning attempts were detected.
+
+Intrusion logs were generated.
+
+Result
+
+The Intrusion Detection System successfully detected and alerted on malicious network activities.
