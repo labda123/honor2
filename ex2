@@ -1,0 +1,89 @@
+Write and execute a program to simulate an asymmetric key algorithm and demonstrate a 
+	    secure key exchange. 
+Aim
+
+To write and execute a program that simulates an asymmetric key cryptographic algorithm and demonstrates a secure key exchange mechanism, and to understand its importance in ensuring secure communication and authentication in Robotic Process Automation (RPA) systems.
+
+Objective
+
+To understand the concept of asymmetric key cryptography
+
+To demonstrate public key and private key usage
+
+To securely exchange a secret key using asymmetric encryption
+
+To analyze the relevance of secure key exchange in RPA environments
+
+Procedure
+
+Start the program execution.
+
+Generate a pair of asymmetric keys (public key and private key).
+
+Display the public key used for encryption.
+
+Simulate a sender encrypting a secret message or key using the public key.
+
+Transmit the encrypted data securely.
+
+Use the corresponding private key to decrypt the data.
+
+Display the decrypted message to verify secure key exchange.
+
+End the program.
+
+Program (Python – RSA Asymmetric Key Encryption)
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
+from cryptography.hazmat.primitives import hashes
+
+# Step 1: Generate RSA key pair
+private_key = rsa.generate_private_key(
+    public_exponent=65537,
+    key_size=2048
+)
+
+public_key = private_key.public_key()
+
+# Step 2: Message to be securely exchanged
+message = input("Enter the secret message to exchange securely: ").encode()
+
+# Step 3: Encrypt using public key (Sender side)
+encrypted_message = public_key.encrypt(
+    message,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+)
+
+# Step 4: Decrypt using private key (Receiver side)
+decrypted_message = private_key.decrypt(
+    encrypted_message,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+)
+
+# Step 5: Display results
+print("\n--- Asymmetric Encryption & Secure Key Exchange ---")
+print("Public Key Used for Encryption")
+print("Encrypted Data :", encrypted_message)
+print("Decrypted Data :", decrypted_message.decode())
+
+Output
+
+Sample Execution:
+
+Enter the secret message to exchange securely: RPA_SECURE_KEY
+
+--- Asymmetric Encryption & Secure Key Exchange ---
+Public Key Used for Encryption
+Encrypted Data : b'\x93\xaf...\x12'
+Decrypted Data : RPA_SECURE_KEY
+
+Result
+
+Thus, the program successfully simulated an asymmetric key algorithm (RSA) and demonstrated secure key exchange. The secret message encrypted using the public key was safely decrypted using the corresponding private key, ensuring secure communication.
