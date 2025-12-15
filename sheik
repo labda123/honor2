@@ -1,0 +1,141 @@
+Below is a **detailed, lab-record–ready answer**, **fully relevant to RPA**, written in a **clear academic format** suitable for **UiPath / Automation Anywhere / Blue Prism** syllabi.
+
+---
+
+# **Experiment: Create a Flowchart to Navigate to a Desired Page Based on a Condition (RPA)**
+
+---
+
+## **Aim**
+
+To design and implement a **flowchart-based robotic process automation (RPA) workflow** that navigates to different web pages based on a **user-defined condition**, demonstrating **decision-making and control flow** in RPA.
+
+---
+
+## **Procedure**
+
+1. Open the RPA development tool (UiPath Studio / Automation Anywhere).
+2. Create a new **Flowchart** workflow.
+3. Define the **Start** node of the flowchart.
+4. Use an **Input Dialog** activity to capture a condition from the user.
+5. Add a **Flow Decision** activity to evaluate the condition.
+6. Based on the condition, configure navigation to different web pages.
+7. Use **Open Browser / Use Application-Browser** activities to navigate.
+8. Display the navigation result using a **Message Box**.
+9. End the workflow execution.
+
+---
+
+## **Program / Workflow Description (RPA Flowchart Logic)**
+
+### **Activities Used**
+
+* **Flowchart** – Controls non-linear workflow execution
+* **Input Dialog** – Captures user input
+* **Flow Decision** – Evaluates conditions (True / False)
+* **Open Browser / Use Application-Browser** – Navigates to web pages
+* **Message Box** – Displays navigation result
+
+---
+
+### **Variables**
+
+| Variable Name | Data Type | Description           |
+| ------------- | --------- | --------------------- |
+| `userChoice`  | String    | Stores user input     |
+| `targetURL`   | String    | Stores navigation URL |
+
+---
+
+### **Flowchart Logic (Text Representation)**
+
+```
+START
+   |
+   v
+Input Dialog:
+"Enter page type (Admin/User)"
+   |
+   v
+Flow Decision:
+Is userChoice = "Admin" ?
+   | YES                       | NO
+   v                           v
+Open Admin Page URL        Open User Page URL
+   |                           |
+   v                           v
+Message Box               Message Box
+"Admin Page Opened"       "User Page Opened"
+   |                           |
+   v                           v
+END                         END
+```
+
+---
+
+## **Program (Pseudo Code – RPA Oriented)**
+
+```
+BEGIN
+   userChoice = InputDialog("Enter page type: Admin or User")
+
+   IF userChoice == "Admin" THEN
+       Open Browser "https://admin.portal.com"
+       MessageBox("Admin page opened successfully")
+   ELSE
+       Open Browser "https://user.portal.com"
+       MessageBox("User page opened successfully")
+   END IF
+END
+```
+
+---
+
+## **Output**
+
+* The bot prompts the user to enter a choice.
+* Based on the entered condition, the bot navigates to the corresponding web page.
+* A confirmation message is displayed.
+
+**Sample Output:**
+
+```
+Enter page type: Admin
+Admin page opened successfully
+```
+
+---
+
+## **Result**
+
+Thus, a flowchart-based RPA workflow was successfully created to navigate to a desired page based on a condition. This experiment demonstrates **conditional branching, decision-making, and dynamic navigation** using RPA flowcharts.
+
+---
+
+## **Relevance to RPA**
+
+* Implements **decision-based automation**
+* Used in **role-based access workflows**
+* Helpful in **login routing, approvals, and exception handling**
+* Demonstrates real-world **business rule execution**
+* Improves understanding of **Flowcharts vs Sequences** in RPA
+
+---
+
+## **Viva-Voce (Optional)**
+
+**Q1. Why use Flowchart instead of Sequence in RPA?**
+Flowcharts are used when workflows require multiple decision paths and non-linear execution.
+
+**Q2. Where is this used in real-time automation?**
+In dashboards, ERP systems, banking portals, and approval systems.
+
+---
+
+If you want, I can also provide:
+✔ **Neat ASCII flowchart diagram**
+✔ **UiPath activity-by-activity steps**
+✔ **Automation Anywhere version**
+✔ **Hand-drawn style flowchart for exams**
+
+Just tell me 👍
