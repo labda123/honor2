@@ -1,0 +1,65 @@
+Write and execute a program to perform symmetric key encryption for a given message.  
+Aim
+
+To design, implement, and execute a program that performs symmetric key encryption and decryption for a given message using a single shared secret key, and to understand its importance in Robotic Process Automation (RPA) for securing sensitive business data.
+
+Objective
+
+To understand the concept of symmetric key encryption
+
+To encrypt confidential data using a shared secret key
+
+To decrypt encrypted data using the same key
+
+Procedure
+
+Start the program.
+
+Define a secret key to be used for encryption and decryption.
+
+Accept a plaintext message from the user.
+
+Encrypt the message using the symmetric key.
+
+Display the encrypted message.
+
+Decrypt the encrypted message using the same key.
+
+Display the decrypted message.
+
+Stop the program.
+
+Program (Python – AES Symmetric Encryption)
+from cryptography.fernet import Fernet
+
+# Generate a symmetric key
+key = Fernet.generate_key()
+cipher = Fernet(key)
+
+# Input message
+message = input("Enter the message: ")
+
+# Encrypt the message
+encrypted_message = cipher.encrypt(message.encode())
+
+# Decrypt the message
+decrypted_message = cipher.decrypt(encrypted_message)
+
+# Display results
+print("\nSecret Key:", key)
+print("Encrypted Message:", encrypted_message)
+print("Decrypted Message:", decrypted_message.decode())
+
+Output
+
+Sample Execution:
+
+Enter the message: RPA Automation Security
+
+Secret Key: b'k8Zy5x2M3sP0J9H...'
+Encrypted Message: b'gAAAAABlYJ...'
+Decrypted Message: RPA Automation Security
+
+Result
+
+Thus, the program successfully performed symmetric key encryption and decryption using a single secret key. The original message was securely encrypted and later decrypted without data loss.
