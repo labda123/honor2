@@ -1,22 +1,26 @@
-Demonstrate an intrusion detection system using a security tool.
-
+EXPERIMENT – 8
+Demonstration of Intrusion Detection System Using Snort
 Aim
 
-To demonstrate the working of an Intrusion Detection System (IDS) using a security tool to detect unauthorized and malicious activities in a network.
+To demonstrate the working of an Intrusion Detection System using a security tool to detect unauthorized access and suspicious network activities.
 
 Objectives
 
-To understand the concept and importance of Intrusion Detection Systems
+To understand the need for intrusion detection
 
-To analyze rule‑based intrusion detection mechanisms
+To study signature‑based intrusion detection
 
-To identify malicious network activities
+To detect malicious network activities
 
-To generate alerts for intrusion attempts
+To generate alerts for security violations
 
-Introduction / Theory
+To analyze intrusion logs
 
-An Intrusion Detection System (IDS) is a security mechanism that monitors network traffic and system activities to identify suspicious behavior or policy violations. IDS tools analyze packets based on predefined rules or anomaly detection techniques. Snort is an open‑source, signature‑based IDS widely used for real‑time traffic analysis and packet logging.
+Theory / Background
+
+An Intrusion Detection System (IDS) is a security solution designed to monitor network traffic or system activities for malicious behavior or policy violations. IDS can be classified as Network‑based IDS (NIDS) or Host‑based IDS (HIDS). Snort is a popular open‑source NIDS that performs real‑time traffic analysis and packet logging using predefined rules.
+
+Snort examines each packet and compares it against a set of rules. When a rule matches, an alert is generated. IDS helps administrators detect attacks such as port scanning, denial of service attempts, and unauthorized access.
 
 Tools / Software Used
 
@@ -26,19 +30,19 @@ Snort IDS Tool
 
 Procedure
 
-Snort is installed using the system package manager.
+Snort is installed using the package manager.
 
-The Snort configuration file is edited to define the protected network.
+The Snort configuration file is edited.
 
-The HOME_NET variable is configured according to the local network.
+HOME_NET variable is configured to protect the local network.
 
-Snort is started in intrusion detection mode.
+Snort is started in IDS mode.
 
 Network traffic is monitored continuously.
 
-Suspicious traffic such as port scanning is generated using scanning tools.
+Suspicious traffic is generated using tools like Nmap.
 
-Snort analyzes traffic and compares it with predefined rules.
+Snort analyzes traffic based on defined rules.
 
 Alerts are generated for detected intrusions.
 
@@ -50,12 +54,12 @@ nmap -sS <target-IP>
 
 Output
 
-Alerts indicating suspicious activities were displayed.
+Alerts were displayed for port scanning activities.
 
-Port scanning attempts were detected.
+Intrusion attempts were detected.
 
-Intrusion logs were generated.
+Log entries were generated.
 
 Result
 
-The Intrusion Detection System successfully detected and alerted on malicious network activities.
+The Intrusion Detection System successfully detected and alerted on suspicious network activities.
