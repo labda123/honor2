@@ -1,0 +1,111 @@
+Install WireShark and TCPDump to analyze client-server communication and identify 
+	   UDP/TCP datagrams. 
+Aim
+
+To install and use Wireshark and TCPDump tools to analyze client–server communication, capture network packets, and identify TCP and UDP datagrams, thereby understanding network behavior relevant to secure and reliable Robotic Process Automation (RPA) systems.
+
+Objective
+
+To install Wireshark and TCPDump
+
+To capture live network traffic
+
+To analyze client–server communication
+
+To identify and differentiate TCP and UDP datagrams
+
+To understand the relevance of packet analysis in RPA
+
+Procedure
+A. Installation of Wireshark
+
+Download Wireshark from the official website.
+
+Run the installer and select default options.
+
+Install Npcap (required for packet capturing).
+
+Launch Wireshark after installation.
+
+Select the active network interface (Wi-Fi / Ethernet).
+
+B. Installation of TCPDump
+
+On Linux:
+
+sudo apt update
+sudo apt install tcpdump
+
+
+On Windows (via WSL or bundled tools):
+
+Install TCPDump inside Linux subsystem or use WinDump.
+
+Verify installation:
+
+tcpdump --version
+
+C. Packet Capture Using Wireshark
+
+Open Wireshark.
+
+Select the active network interface.
+
+Start capturing packets.
+
+Generate traffic by opening a website or running a client–server application.
+
+Apply filters:
+
+TCP packets: tcp
+
+UDP packets: udp
+
+Stop capture and analyze packets.
+
+D. Packet Capture Using TCPDump
+
+Run the following commands:
+
+Capture all packets:
+
+sudo tcpdump
+
+
+Capture TCP packets only:
+
+sudo tcpdump tcp
+
+
+Capture UDP packets only:
+
+sudo tcpdump udp
+
+
+Capture packets from a specific port:
+
+sudo tcpdump port 80
+
+Program / Commands Used
+Wireshark Filters
+tcp
+udp
+tcp.port == 443
+udp.port == 53
+
+TCPDump Commands
+sudo tcpdump -i eth0
+sudo tcpdump tcp
+sudo tcpdump udp
+sudo tcpdump -nn
+
+Identification of TCP and UDP Datagrams
+Feature	TCP	UDP
+Connection	Connection-oriented	Connectionless
+Reliability	Reliable	Unreliable
+Flags	SYN, ACK, FIN	No flags
+Usage	HTTPS, FTP	DNS, Streaming
+
+Result
+
+Thus, Wireshark and TCPDump were successfully installed and used to analyze client–server communication. TCP and UDP datagrams were correctly identified, and packet-level network behavior was observed and recorded.
