@@ -1,0 +1,118 @@
+Below is a **bigger, detailed, and RPA-relevant lab record answer**, written in **clear academic language**, suitable for **RPA / Automation Anywhere / UiPath–based syllabi** and ready to submit.
+
+---
+
+# **Experiment: Creating a Sequence to Obtain User Inputs and Display Them Using a Message Box (RPA)**
+
+---
+
+## **Aim**
+
+To design and implement a **robotic process automation (RPA) sequence** that collects user inputs and displays the collected information using a **message box**, demonstrating the basic concept of **human–bot interaction** in RPA.
+
+---
+
+## **Procedure**
+
+1. Launch the RPA development environment (such as **UiPath Studio** or **Automation Anywhere**).
+2. Create a new **Sequence** workflow.
+3. Use **Input Dialog** activity to obtain user details such as name and department.
+4. Store the user inputs in string variables.
+5. Use a **Message Box** activity to display the collected inputs.
+6. Validate that the workflow executes sequentially without errors.
+7. Stop the execution after successful display.
+
+---
+
+## **Program / Workflow Description (UiPath-Based RPA)**
+
+### **Activities Used**
+
+* **Sequence** – Controls the execution flow.
+* **Input Dialog** – Captures user input.
+* **Assign** – Stores input values in variables.
+* **Message Box** – Displays output to the user.
+
+---
+
+### **Variables**
+
+| Variable Name | Data Type | Description       |
+| ------------- | --------- | ----------------- |
+| `userName`    | String    | Stores user name  |
+| `userRole`    | String    | Stores user role  |
+| `userDept`    | String    | Stores department |
+
+---
+
+### **Workflow Steps**
+
+1. Add an **Input Dialog** to request the user’s name.
+2. Add another **Input Dialog** to request the user’s role.
+3. Add a third **Input Dialog** to request the department.
+4. Concatenate the collected inputs.
+5. Display the information using a **Message Box** activity.
+
+---
+
+### **Pseudo Code (RPA Logic)**
+
+```
+START
+DISPLAY Input Dialog: "Enter Name"
+STORE value in userName
+
+DISPLAY Input Dialog: "Enter Role"
+STORE value in userRole
+
+DISPLAY Input Dialog: "Enter Department"
+STORE value in userDept
+
+DISPLAY Message Box:
+"User Details:
+Name: userName
+Role: userRole
+Department: userDept"
+END
+```
+
+---
+
+## **Output**
+
+* The bot prompts the user for details using input dialogs.
+* After entering the inputs, a message box displays the captured information.
+
+**Sample Output (Message Box):**
+
+```
+User Details:
+Name: Faouzia
+Role: RPA Trainee
+Department: Automation
+```
+
+---
+
+## **Result**
+
+Thus, a sequence-based RPA workflow was successfully created to obtain user inputs and display them using a message box. This experiment demonstrates **basic user interaction, sequential execution, and variable handling** in Robotic Process Automation.
+
+---
+
+## **Relevance to RPA**
+
+* Demonstrates **human-in-the-loop automation**.
+* Useful for collecting credentials, approval inputs, or form data.
+* Forms the foundation for **automated business processes** such as onboarding, ticket creation, and data validation.
+* Helps understand **workflow sequencing and activity orchestration** in RPA tools.
+
+---
+
+If you want, I can also provide:
+✔ **UiPath screenshots explanation**
+✔ **Automation Anywhere equivalent**
+✔ **Flowchart diagram**
+✔ **Viva-voce questions & answers**
+
+Just tell me 😊
